@@ -3,9 +3,14 @@ package Homework4;
 import java.util.Random;
 import java.util.Scanner;
 
+//Создать трехмерный массив из целых чисел. С помощью
+//циклов "пройти" по всему массиву и увеличить каждый
+//элемент на заданное число. Пусть число, на которое будет
+//увеличиваться каждый элемент, задается из консоли.
+
 public class Task1 {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
 
         int[][][] array3d = new int[3][3][3];
         Random random = new Random();
