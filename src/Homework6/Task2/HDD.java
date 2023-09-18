@@ -1,4 +1,4 @@
-package Homework6Task2;
+package Homework6.Task2;
 
 public class HDD {
 
