@@ -36,7 +36,7 @@ public class Task2 {
 
         // count how many times the number from the input is in the array and calculate new array size
         for (int i : array) {
-            if (array[i] == searchNumber) {
+            if (i == searchNumber) {
                 isInTheArray = true;
                 newArrayLength--;
             }
