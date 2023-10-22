@@ -56,70 +56,66 @@ public class CustomArrayList {
 
     //remove the specified object from the collection
     public void remove(Object object) {
-        int index = -1;
-        for(int i = 0; i < array.length; i++)
-            if(array[i].equals(object)) {
-                index = i;
-                break;
-            }
+        int newArrayLength = array.length;
+        for(Object o : array)
+            if(o.equals(object))
+                newArrayLength--;
 
         //if specified object is not present in the collection = throw an exception
-        if(index == -1) {
+        if(newArrayLength == array.length) {
             throw new ObjectNotFoundException("No such object in the collection");
         }
 
         //copy the array, skipping the specified object
-        Object[] newArray = new Object[array.length - 1];
-        boolean passedDeletedObject = false;
-        for (int i = 0; i < array.length; i++) {
-            if(!passedDeletedObject) { //if the cycle didn't yet reach the object that needs to be deleted
-                if (i == index) {
-                    passedDeletedObject = true;
-                    continue;
-                }
-                newArray[i] = array[i]; //copy to the same index
+        Object[] newArray = new Object[newArrayLength];
+        int i = 0; // index for the new array
+
+        // copy the array skipping the object that needs to be deleted
+        for(Object o : array) {
+            if (!o.equals(object)) {
+                newArray[i] = o;
+                i++;
             }
-            else
-                newArray[i-1] = array[i]; //copy to index-1 because of the deleted object
         }
+
         array = newArray;
     }
 
     //remove the object with specified index from the collection
     public void remove(int index) {
         if(index < 0 || index >= array.length) {
-            throw new ObjectNotFoundException("No such object in the collection");
+            throw new ObjectNotFoundException("No object with this index in the collection");
         }
 
         //copy the array, skipping the specified object
         Object[] newArray = new Object[array.length - 1];
-        boolean passedDeletedObject = false;
-        for (int i = 0; i < array.length; i++) {
-            if(!passedDeletedObject) { //if the cycle didn't yet reach the object that needs to be deleted
-                if (i == index) {
-                    passedDeletedObject = true;
-                    continue;
-                }
-                newArray[i] = array[i]; //copy to the same index
+        int i = 0;
+        int j = 0;
+
+        // copy the array skipping the object that needs to be deleted
+        for(Object o : array) {
+            if (i != index) {
+                newArray[j] = o;
+                j++;
             }
-            else
-                newArray[i-1] = array[i]; //copy to index-1 because of the deleted object
+            i++;
         }
+
         array = newArray;
     }
 
     //check if the collection contains specified object
     public boolean contains(Object object) {
-        for(int i = 0; i < array.length; i++)
-            if(array[i].equals(object))
+        for(Object o : array)
+            if(o.equals(object))
                 return true;
         return false;
     }
 
     //clear the collection
     public void clear() {
-        for(int i = 0; i < array.length; i++)
-            array[i] = null;
+        for(Object o : array)
+            o = null;
     }
 
 }
