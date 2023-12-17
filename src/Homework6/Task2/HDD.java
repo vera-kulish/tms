@@ -4,16 +4,16 @@ public class HDD {
 
     String name;
     double volume;
-    String type; // internal or external
+    Type type; // internal or external
 
     HDD() {
         this.name = "HDDdefault";
         this.volume = 256;
-        this.type = "internal";
+        this.type = Type.INTERNAL;
     }
 
-    HDD(String name, double volume, String type) {
-        if (type.toLowerCase().equals("internal") || type.toLowerCase().equals("external")) {
+    HDD(String name, double volume, Type type) {
+        if (type.equals(Type.INTERNAL) || type.equals(Type.EXTERNAL)) {
             this.name = name;
             this.volume = volume;
             this.type = type;

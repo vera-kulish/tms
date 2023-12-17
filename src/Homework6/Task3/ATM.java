@@ -45,16 +45,13 @@ public class ATM {
             if (amount >= 100 && d100 >= num100 + 1 && (amount-100) % 100 != 10) { // if amount to withdraw is more than 100 and there's enough cash in the ATM and the next step doesn't leave 10
                 num100 += 1;
                 amount -= 100;
-            }
-            else if (amount >= 50 && d50 >= num50 + 1 && (amount-50) % 50 != 10) {
+            } else if (amount >= 50 && d50 >= num50 + 1 && (amount-50) % 50 != 10) {
                 num50 += 1;
                 amount -= 50;
-            }
-            else if (amount >= 20 && d20 >= num20 + 1) {
+            } else if (amount >= 20 && d20 >= num20 + 1) {
                 num20 += 1;
                 amount -= 20;
-            }
-            else {
+            } else {
                 System.out.println("Not enough cash in the ATM");
                 return false;
             }

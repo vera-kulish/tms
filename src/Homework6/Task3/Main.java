@@ -32,7 +32,6 @@ public class Main {
             System.out.println("0 - Exit");
 
             System.out.println("\nChoose the action: ");
-
             try {
                 action = Integer.valueOf(new Scanner(System.in).nextLine());
             } catch (Exception e) {
@@ -41,12 +40,10 @@ public class Main {
                 continue;
             }
 
-
             switch (action) {
                 case 0:
                     return; //exit
-                case 1: {
-
+                case 1:
                     //read the amount to withdraw
                     System.out.println("\nPlease, enter the amount (enter 0 to exit): ");
                     try {
@@ -56,13 +53,10 @@ public class Main {
                         System.out.println("Incorrect value");
                         continue;
                     }
-
                     atm.withdraw(amount);
-                }
                 break;
-                case 2: {
+                case 2:
                     do {
-
                         // read the amount to add
                         System.out.println("\nPlease, enter the amount of 100s to deposit: ");
                         try {
@@ -103,15 +97,10 @@ public class Main {
                     } while(wrongValue == true);
 
                     atm.addCash(a20, a50, a100);
-
-                }
                 break;
                 default:
                     System.out.println("Incorrect value");
             }
-
-        }while (action != 0);
-
-
+        } while (action != 0);
     }
 }

@@ -23,7 +23,7 @@ public class Main {
         System.out.println();
 
         RAM ram = new RAM("very good RAM", 4);
-        HDD hdd = new HDD("such big HDD", 1024, "external");
+        HDD hdd = new HDD("such big HDD", 1024, Type.EXTERNAL);
 
         Computer computer2 = new Computer(3500, "HP Dragonfly Pro Chromebook", ram, hdd);
         System.out.println("Computer2");
