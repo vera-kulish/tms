@@ -18,18 +18,18 @@ package Homework7.Task3;
 public class Register {
 
     Document[] documents = new Document[10];
-    int i = 0;
+    int countOfDocuments = 0;
 
     public Register() {}
 
     public void saveToTheRegister(Document document) {
 
-        if(i >= 10) {
+        if(countOfDocuments >= 10) {
             System.out.println("You can't add more documents to the register");
             return;
         }
-        documents[i] = document;
-        i++;
+        documents[countOfDocuments] = document;
+        countOfDocuments++;
     }
 
     public void displayInfo() {
