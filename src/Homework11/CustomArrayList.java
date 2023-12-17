@@ -32,7 +32,7 @@ public class CustomArrayList {
     }
 
     //get the object by index
-    public Object get(int index) {
+    public Object get(int index) throws ObjectNotFoundException {
         if(index < 0 || index >= array.length) {
             throw new ObjectNotFoundException("No such object in the collection");
         }
@@ -56,15 +56,15 @@ public class CustomArrayList {
 
     //remove the specified object from the collection
     public void remove(Object object) {
+
+        //if specified object is not present in the collection = throw an exception
+        if (!contains(object))
+            throw new ObjectNotFoundException("No such object in the collection");
+
         int newArrayLength = array.length;
         for(Object o : array)
             if(o.equals(object))
                 newArrayLength--;
-
-        //if specified object is not present in the collection = throw an exception
-        if(newArrayLength == array.length) {
-            throw new ObjectNotFoundException("No such object in the collection");
-        }
 
         //copy the array, skipping the specified object
         Object[] newArray = new Object[newArrayLength];
@@ -77,12 +77,11 @@ public class CustomArrayList {
                 i++;
             }
         }
-
         array = newArray;
     }
 
     //remove the object with specified index from the collection
-    public void remove(int index) {
+    public void remove(int index) throws ObjectNotFoundException {
         if(index < 0 || index >= array.length) {
             throw new ObjectNotFoundException("No object with this index in the collection");
         }
@@ -100,7 +99,6 @@ public class CustomArrayList {
             }
             i++;
         }
-
         array = newArray;
     }
 
@@ -114,8 +112,7 @@ public class CustomArrayList {
 
     //clear the collection
     public void clear() {
-        for(Object o : array)
-            o = null;
+        this.array = new Object[0];
     }
 
 }
