@@ -7,11 +7,13 @@ import java.util.regex.Pattern;
 
 public class Document {
 
-    Document() {
+    static final String DOC_NUMBER_PATTERN = "[a-zA-z]{4}-\\d{3}-[a-zA-z]{4}-\\d{3}-[a-zA-z]\\d[a-zA-z]\\d";
+
+    public Document() {
     }
 
     public boolean validateFormat(String docNumber) {
-        return Pattern.matches("[a-zA-z]{4}-\\d{3}-[a-zA-z]{4}-\\d{3}-[a-zA-z]\\d[a-zA-z]\\d", docNumber);
+        return Pattern.matches(DOC_NUMBER_PATTERN, docNumber);
     }
 
     //- Вывести на экран в одну строку два первых блока по 4 цифры.
@@ -68,9 +70,9 @@ public class Document {
     // (причем, abc и ABC считается одинаковой последовательностью).
     public void containsAbc(String docNumber) {
 
-        String lowerCase = docNumber.toLowerCase();
+        String docNumberLowerCase = docNumber.toLowerCase();
 
-        if(lowerCase.contains("abc"))
+        if(docNumberLowerCase.contains("abc"))
             System.out.println("String contains abc");
         else
             System.out.println("String doesn't contain abc");
