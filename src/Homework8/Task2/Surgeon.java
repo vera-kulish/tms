@@ -7,7 +7,7 @@ public class Surgeon implements Doctor {
 
     public void treat(Patient patient) {
         System.out.println("The patient " + patient.name + " got a surgery");
-        patient.changeBalance('-', 500);
+        patient.changeBalance(Operation.SUBSTRACT, 500);
     }
 
     void displayInfo() {

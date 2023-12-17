@@ -7,7 +7,7 @@ public class Dentist implements Doctor {
 
     public void treat(Patient patient) {
         System.out.println("The patient " + patient.name + " has lost a tooth");
-        patient.changeBalance('-', 700);
+        patient.changeBalance(Operation.SUBSTRACT, 700);
     }
 
     void displayInfo() {

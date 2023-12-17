@@ -14,12 +14,12 @@ public class Patient {
         this.balance = 0;
     }
 
-    void changeBalance(char operation, double amount) {
+    void changeBalance(Operation operation, double amount) {
         switch(operation){
-            case '+':
+            case ADD:
                 this.balance += amount;
                 break;
-            case '-':
+            case SUBSTRACT:
                 this.balance -= amount;
                 break;
             default:
@@ -44,9 +44,11 @@ public class Patient {
                 Dentist dentist = new Dentist();
                 dentist.treat(this);
                 break;
-            default:
+            case THREE:
                 Physician physician = new Physician();
                 physician.treat(this);
+            default:
+                System.out.println("Wrong treatment plan");
         }
     }
 
