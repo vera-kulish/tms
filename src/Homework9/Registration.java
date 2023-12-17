@@ -11,7 +11,7 @@ package Homework9;
 
 public class Registration {
 
-    public static void register(String login, String password, String confirmPassword) {
+    public static void register(String login, String password, String confirmPassword) throws WrongLoginException, WrongPasswordException {
 
         if (login.length() > 19)
             throw new WrongLoginException("Login can't exceed 19 symbols");
@@ -25,16 +25,11 @@ public class Registration {
         if( password.contains(" "))
             throw new WrongPasswordException("Password can't contain spaces");
 
-        boolean containsNumbers = false;
         for (int i = 0; i < password.length(); ++i) {
             if (Character.isDigit(password.charAt(i))) {
-                containsNumbers = true;
-                break;
+                throw new WrongPasswordException("Password should contain numbers");
             }
         }
-
-        if (!containsNumbers)
-            throw new WrongPasswordException("Password should contain numbers");
 
         if (!password.equals(confirmPassword))
             throw new WrongPasswordException("Passwords don't match");

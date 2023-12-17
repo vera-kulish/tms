@@ -8,10 +8,7 @@ public class Main {
          try {
              registration.register("QWE", "RTY123 ", "RTY123");
          }
-         catch (WrongLoginException e) {
-             System.out.println(e);
-         }
-         catch(WrongPasswordException e) {
+         catch (WrongLoginException | WrongPasswordException e) {
              System.out.println(e);
          }
      }
