@@ -29,7 +29,7 @@ public class Task1 {
 
         // go through the array to see if the number from the input is present in the array
         for (int i : array) {
-            if (array[i] == searchNumber) {
+            if (i == searchNumber) {
                 System.out.println(searchNumber + " is in the array");
                 isInTheArray = true;
                 break;
