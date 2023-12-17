@@ -5,18 +5,18 @@ public class Shape {
     int sides;
     int[] sideLengths = new int[sides];
 
-    Shape(int sides, int[] sideLengths) {
+    public Shape(int sides, int[] sideLengths) {
         this.sides = sides;
         for (int i = 0; i < sides; i++) {
             this.sideLengths[i] = sideLengths[i];
         }
     }
 
-    Shape() {
+    public Shape() {
 
     }
 
-    int perimeter () {
+    public int perimeter () {
         int perimeter = 0;
         for (int i : sideLengths) {
             perimeter += i;

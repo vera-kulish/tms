@@ -12,9 +12,17 @@ public class Main {
 
         Shape[] shapes = new Shape[5];
         shapes[0] = new Triangle(5, 6, 7);
-        shapes[1] = new Rectangle(5, 10, 5, 10);
+        try {
+            shapes[1] = new Rectangle(5, 5, 10, 10);
+        } catch (IncorrectInputException e) {
+            System.out.println(e);
+        }
         shapes[2] = new Circle(13);
-        shapes[3] = new Rectangle(43, 54, 43, 54);
+        try {
+            shapes[3] = new Rectangle(43, 54, 43, 54);
+        } catch (IncorrectInputException e) {
+            System.out.println(e);
+        }
         shapes[4] = new Circle(23);
 
         int perimeterSum = 0;
